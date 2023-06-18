@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume Builder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .section {
+      margin-bottom: 30px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    
+    .section h2 {
+      margin-bottom: 10px;
+    }
+    
+    .section .sub-heading {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .section .content {
+      margin-top: 5px;
+    }
+    
+    .section ul {
+      padding-left: 20px;
+      margin: 5px 0;
+    }
+    
+    .section ul li {
+      margin-bottom: 5px;
+    }
+    
+    .section .content p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    
+    .generate-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    #resume {
+      margin-top: 30px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Resume Builder</h1>
+  
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+  </div>
+  
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter your email">
+  </div>
+  
+  <div class="form-group">
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" placeholder="Enter your phone number">
+  </div>
+  
+  <div class="form-group">
+    <label for="education">Education:</label>
+    <textarea id="education" rows="4" placeholder="Enter your educational qualifications"></textarea>
+  </div>
+  
+  <div class="form-group">
+    <label for="experience">Experience:</label>
+    <textarea id="experience" rows="4" placeholder="Enter your work experience"></textarea>
+  </div>
+  
+  <div class="form-group">
+    <label for="skills">Skills:</label>
+    <textarea id="skills" rows="4" placeholder="Enter your skills"></textarea>
+  </div>
+  
+  <div class="form-group">
+    <label for="hobbies">Hobbies:</label>
+    <textarea id="hobbies" rows="4" placeholder="Enter your hobbies"></textarea>
+  </div>
+  
+  <div class="form-group">
+    <label for="achievements">Achievements:</label>
+    <textarea id="achievements" rows="4" placeholder="Enter your achievements"></textarea>
+  </div>
+  
+  <div class="form-group">
+    <label for="references">References:</label>
+    <textarea id="references" rows="4" placeholder="Enter your references"></textarea>
+  </div>
+  
+  <button class="generate-button" onclick="generateResume()">Generate Resume</button>
+  
+  <div id="resume"></div>
+  
+  <script>
+    function generateResume() {
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var education = document.getElementById('education').value;
+      var experience = document.getElementById('experience').value;
+      var skills = document.getElementById('skills').value;
+      var hobbies = document.getElementById('hobbies').value;
+      var achievements = document.getElementById('achievements').value;
+      var references = document.getElementById('references').value;
+      
+      var resumeContent = `
+        <div class="section">
+          <h2>Contact Information</h2>
+          <p class="sub-heading">Name:</p>
+          <p class="content">${name}</p>
+          <p class="sub-heading">Email:</p>
+          <p class="content">${email}</p>
+          <p class="sub-heading">Phone:</p>
+          <p class="content">${phone}</p>
+        </div>
+        
+        <div class="section">
+          <h2>Education</h2>
+          <p class="content">${education}</p>
+        </div>
+        
+        <div class="section">
+          <h2>Experience</h2>
+          <p class="content">${experience}</p>
+        </div>
+        
+        <div class="section">
+          <h2>Skills</h2>
+          <p class="content">${skills}</p>
+        </div>
+        
+        <div class="section">
+          <h2>Hobbies</h2>
+          <p class="content">${hobbies}</p>
+        </div>
+        
+        <div class="section">
+          <h2>Achievements</h2>
+          <p class="content">${achievements}</p>
+        </div>
+        
+        <div class="section">
+          <h2>References</h2>
+          <p class="content">${references}</p>
+        </div>
+        
+        <!-- Add more sections for projects, certifications, etc. -->
+      `;
+      
+      document.getElementById('resume').innerHTML = resumeContent;
+    }
+  </script>
+</body>
+</html>
